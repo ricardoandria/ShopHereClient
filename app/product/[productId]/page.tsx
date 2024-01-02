@@ -1,13 +1,17 @@
+"use client";
 import Container from "@/app/Container";
 import ProductDetails from "./ProductDetails";
-import { product } from "@/app/utils/product";
 import ListRating from "./ListRating";
+import { products } from "@/app/utils/products";
+import { useEffect } from "react";
 
 interface IParams {
   productId?: string;
 }
 
 const Product = ({ params }: { params: IParams }) => {
+  const product = products.find((item) => item.id === params.productId);
+
   return (
     <div>
       <Container>
